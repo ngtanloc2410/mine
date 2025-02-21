@@ -1,4 +1,4 @@
-FROM ubuntu:latest  # Or a more specific Ubuntu version (e.g., ubuntu:jammy)
+FROM ubuntu:22.04
 
 # Install dependencies (if any).  For the miner, you might need these:
 RUN apt-get update && apt-get install -y wget tar
