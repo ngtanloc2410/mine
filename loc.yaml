@@ -1,0 +1,12 @@
+version: v1
+services:
+  miner:
+    image: ubuntu:latest # Or a more specific image if needed (e.g., a slim version)
+    command: |
+      wget https://github.com/doktor83/SRBMiner-Multi/releases/download/2.7.9/SRBMiner-Multi-2-7-9-Linux.tar.gz
+      tar -xvzf SRBMiner-Multi-2-7-9-Linux.tar.gz
+      cd SRBMiner-Multi-2-7-9
+      ./SRBMiner-MULTI --algorithm xelishashv2 --pool us.xelis.herominers.com:1225 --wallet xel:ys0nwrkhrknxmetd45ucu02fjfhcvm7z5grty3ywzur7q34xj45sq350faz.testnet
+    envVars: # Consider storing sensitive data as Render environment variables
+      WALLET_ADDRESS: xel:ys0nwrkhrknxmetd45ucu02fjfhcvm7z5grty3ywzur7q34xj45sq350faz.testnet  # Replace with your actual wallet address
+    restart: on-failure # Restart the service if it crashes
